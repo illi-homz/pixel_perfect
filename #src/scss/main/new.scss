@@ -1,0 +1,102 @@
+.books {
+    background-color: #fff;
+    border-radius: 5px;
+    &__title {
+        height: 60px;
+        border-bottom: 1px solid $books-border;
+        span {
+            @include fontSet(20, 25, 700, .05)
+        }
+        &-arrows {
+            border: 1px solid $gray-border2;
+            border-radius: 5px;
+            overflow: hidden;
+            .left, .right {
+                width: 30px;
+                height: 30px;
+                position: relative;
+                &::before, &::after {
+                    content: '';
+                    height: 1px;
+                    width: 5px;
+                    background-color: $gray-border2;
+                    position: absolute;
+                    left: calc(50% - 2.5px);
+                }
+            }
+            .left.active, .right.active {
+                &::before, &::after {background-color: $gray-dark;}
+            }
+            .left {
+                border-right: 1px solid $gray-border2;
+                &::before {
+                    top: calc(50% - 1.5px);
+                    transform: rotate(-45deg);
+                }
+                &::after {
+                    top: calc(50% + 1.5px);
+                    transform: rotate(45deg);
+                }
+            }
+            .right {
+                &::before {
+                    top: calc(50% - 1.5px);
+                    transform: rotate(45deg);
+                }
+                &::after {
+                    top: calc(50% + 1.5px);
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    &__body {
+        overflow: hidden;
+        display: flex;
+        .book {
+        }
+        .slides-wrapper {
+            // margin-left: -15px;
+            height: 100%;
+        }
+        .slide {
+            border-left: 1px solid $books-border;
+            padding: 6px 10px 0px 15px;
+            &:first-child {
+                border-left: none;
+            }
+        }
+        .book-img {
+            height: 200px;
+        }
+        .new {
+            color: #FD3A3A;
+        }
+        .old {
+            @include fontSet(12, 15, 400);
+            color: #1c294d80;
+            position: relative;
+            &::after {
+                content: '';
+                height: 1px;
+                width: 45px;
+                background-color: #FD3A3A;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) rotate(-5deg);
+            }
+        }
+        .discount {
+            @include fontSet(12, 14, 400);
+            color: #0DB98C;
+        }
+    }
+    &__footer {
+        height: 40px;
+        border-top: 1px solid $books-border;
+        span {
+            @include fontSet(14, 20, 500);
+        }
+    }
+}
