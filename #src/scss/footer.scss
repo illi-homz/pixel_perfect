@@ -89,6 +89,14 @@
       @include fontSet(14, 20, 500);
       margin-bottom: 24px;
     }
+    ul, .animate {
+      overflow: hidden;
+      transition: all .2s ease;
+      height: 100%;
+      &.hidden {
+        height: 0;
+      }
+    }
     li {
       margin-bottom: 15px;
       &:last-child {
