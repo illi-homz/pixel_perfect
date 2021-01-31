@@ -1,4 +1,4 @@
-"use strict";
+'use strict'; // Проверка поддержки webp браузером и добавление класса webp
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6,7 +6,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Проверка поддержки webp браузером и добавление класса webp
 function testWebP(callback) {
   var webP = new Image();
 
@@ -32,28 +31,30 @@ var MainSlider = /*#__PURE__*/function () {
     _classCallCheck(this, MainSlider);
 
     this.slider = slider;
-    this.counter = 0;
     this.slidesOnPage = slidesOnPage;
+    this.init();
   }
 
   _createClass(MainSlider, [{
     key: "init",
     value: function init() {
-      this.sliderWidth = this.slider.clientWidth;
+      this.counter = 0;
       this.wrapper = this.slider.querySelector('.wrap');
       this.prev = this.slider.querySelector('.prev');
       this.next = this.slider.querySelector('.next');
       this.slides = this.slider.querySelectorAll('.item');
-      this.slideWidth;
-      this.slidesLingth = this.slides.length;
-      this.slidesCounter = Math.ceil(this.slidesLingth / this.slidesOnPage);
+      this.slidesCounter = this.slides.length;
+      this.dotsCounter = Math.ceil(this.slidesCounter / this.slidesOnPage);
       this.nav = this.slider.querySelector('.nav');
       this.dots = [];
-      this.shift = 0;
-      this.btnsInit();
+      this.shiftMain = 0;
+      this.end = this.slidesCounter % this.slidesOnPage;
+      this.slideWidth = 100 / this.slidesOnPage;
+      this.sliderWidth = this.slider.clientWidth;
+      this.wrapperWidth = this.slidesCounter * this.slideWidth;
+      this.navBtnsInit();
       this.setSlidesWidth();
-      this.createDots();
-      this.dots[this.counter].classList.add('active');
+      this.setNavDots();
       this.changeActiveBtns();
     }
   }, {
@@ -61,25 +62,36 @@ var MainSlider = /*#__PURE__*/function () {
     value: function setSlidesWidth() {
       var _this = this;
 
-      this.slideWidth = 100 / this.slidesOnPage;
       this.slides.forEach(function (slide) {
         slide.style.minWidth = "".concat(_this.slideWidth, "%");
       });
     }
   }, {
-    key: "createDots",
-    value: function createDots() {
+    key: "setNavDots",
+    value: function setNavDots() {
       var _this2 = this;
 
-      var self = this;
+      if (!this.nav) return;
 
       var _loop = function _loop(i) {
         var dotItem = document.createElement('div');
         dotItem.classList.add('nav__item');
         dotItem.addEventListener('click', function () {
-          self.counter = i;
-          self.moveSlide();
-          self.changeActiveDot();
+          _this2.counter = i;
+
+          _this2.changeActiveDot();
+
+          var shift = 100 * i;
+
+          if (i === _this2.dotsCounter - 1) {
+            _this2.shiftMain = _this2.wrapperWidth - 100;
+
+            _this2.move(_this2.shiftMain);
+          } else {
+            _this2.shiftMain = shift;
+
+            _this2.move(_this2.shiftMain);
+          }
         });
 
         _this2.dots.push(dotItem);
@@ -87,18 +99,20 @@ var MainSlider = /*#__PURE__*/function () {
         _this2.nav.appendChild(dotItem);
       };
 
-      for (var i = 0; i < this.slidesCounter; i++) {
+      for (var i = 0; i < this.dotsCounter; i++) {
         _loop(i);
       }
+
+      this.dots[this.counter].classList.add('active');
     }
   }, {
-    key: "btnsInit",
-    value: function btnsInit() {
+    key: "navBtnsInit",
+    value: function navBtnsInit() {
       var _this3 = this;
 
       this.prev.addEventListener('click', function () {
         if (_this3.counter <= 0) {
-          _this3.counter = _this3.slidesCounter - 1; // this.shift = this.counter * this.slidesCounter * this.slideWidth
+          _this3.counter = _this3.dotsCounter - 1;
         } else {
           _this3.counter--;
         }
@@ -110,7 +124,7 @@ var MainSlider = /*#__PURE__*/function () {
         _this3.changeActiveBtns();
       });
       this.next.addEventListener('click', function () {
-        if (_this3.counter >= _this3.slidesCounter - 1) {
+        if (_this3.counter >= _this3.dotsCounter - 1) {
           _this3.counter = 0;
         } else {
           _this3.counter++;
@@ -124,35 +138,6 @@ var MainSlider = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "moveSlide",
-    value: function moveSlide(direction) {
-      var end = this.slidesOnPage * this.slidesCounter - this.slidesLingth;
-      end = this.slidesOnPage - end;
-      console.log(end);
-
-      if (this.counter === 0) {
-        this.shift = 0;
-      } else if (this.counter === this.slidesCounter - 1) {
-        if (direction === 'next') {
-          this.shift += this.slideWidth * end;
-        }
-      } else if (this.counter === 1) {
-        if (direction === 'prev') {
-          // this.shift = this.counter * this.slidesCounter * this.slideWidth
-          this.shift -= this.slideWidth * end;
-        }
-      } else {
-        this.shift += this.slideWidth * this.slidesOnPage;
-      }
-
-      this.move(this.shift);
-    }
-  }, {
-    key: "move",
-    value: function move(shift) {
-      this.wrapper.style['margin-left'] = "-".concat(shift, "%");
-    }
-  }, {
     key: "changeActiveBtns",
     value: function changeActiveBtns() {
       if (this.counter === 0) {
@@ -161,7 +146,7 @@ var MainSlider = /*#__PURE__*/function () {
         this.prev.classList.add('active');
       }
 
-      if (this.counter === this.slidesCounter - 1) {
+      if (this.counter === this.dotsCounter - 1) {
         this.next.classList.remove('active');
       } else {
         this.next.classList.add('active');
@@ -180,53 +165,50 @@ var MainSlider = /*#__PURE__*/function () {
         }
       });
     }
+  }, {
+    key: "moveSlide",
+    value: function moveSlide(direction) {
+      var shift = 100;
+
+      if (direction === 'next') {
+        if (this.counter === 0) {
+          this.shiftMain = 0;
+          this.move(this.shiftMain);
+        } else if (this.shiftMain + 2 * shift > this.wrapperWidth) {
+          this.shiftMain += this.end * this.slideWidth;
+          this.move(this.shiftMain);
+        } else {
+          this.shiftMain += shift;
+          this.move(this.shiftMain);
+        }
+      } else if (direction === 'prev') {
+        if (this.counter === this.dotsCounter - 1) {
+          this.shiftMain = this.wrapperWidth - 100;
+          this.move(this.shiftMain);
+        } else if (this.shiftMain - shift < 0) {
+          this.shiftMain = 0;
+          this.move(this.shiftMain);
+        } else {
+          this.shiftMain -= shift;
+          this.move(this.shiftMain);
+        }
+      }
+    }
+  }, {
+    key: "move",
+    value: function move(shift) {
+      this.wrapper.style['margin-left'] = "-".concat(shift, "%");
+    }
   }]);
 
   return MainSlider;
 }();
 
 var slider = document.querySelector('.main-slider');
-var mainSlider = new MainSlider(slider, 3);
-mainSlider.init(); // const mainBill = document.querySelector('.main__bill')
-// const mainBookBill = document.querySelector('.main__book-bill')
-// const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-// if (viewport_width < 992) {
-//   mainBookBill.after(mainBill)
-//   // mainBill.classList.add('done')
-// }
-// const slider = document.querySelector('.main__slider')
-// window.addEventListener('resize', () => {
-//   const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-//   if (viewport_width < 992) {
-//     if (!mainBill.classList.contains('done')) {
-//       mainBookBill.after(mainBill)
-//       mainBill.classList.add('done')
-//     }
-//   }
-//   else {
-//     if (mainBill.classList.contains('done')) {
-//       slider.after(mainBill)
-//       mainBill.classList.remove('done')
-//     }
-//   }
-// })
-// // slider setting
-// const sliders = document.querySelectorAll('.my-slider')
-// sliders.forEach(slider => {
-//   const sliderWidth = slider.clientWidth
-//   const slidesCount = +slider.getAttribute('slides')
-//   const slidesMdCount = +slider.getAttribute('slides-md')
-//   console.log(slidesMdCount);
-//   if (slidesMdCount && viewport_width > 768) {
-//     const slides = slider.children[0].children
-//     for (let i = 0; i < slides.length; i++) {
-//       slides[i].style.width = sliderWidth/slidesMdCount + 'px'
-//     }
-//   }
-//   else {
-//     const slides = slider.children[0].children
-//   for (let i = 0; i < slides.length; i++) {
-//     slides[i].style.width = sliderWidth/slidesCount + 'px'
-//   }
-//   }
-// })
+var mainSlider = new MainSlider(slider, 1);
+var sliderNewBooks = document.querySelector('#slider-new-books');
+var sliderNewBooksActive = new MainSlider(sliderNewBooks, 4);
+var sliderReading = document.querySelector('#slider-reading');
+var sliderReadingActive = new MainSlider(sliderReading, 4);
+var sliderNews = document.querySelector('#slider-news');
+var sliderNewsActive = new MainSlider(sliderNews, 3);

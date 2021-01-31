@@ -14,6 +14,7 @@
 
 @import 'header';
 @import 'main';
+@import 'footer';
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -26,18 +27,17 @@
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 10px;
+  height: 100%;
 }
 
 .row {
-  display: flex;
 }
 
 .col {
-  // flex: 1 0;
 }
 
 .red {
-  * {
+  &, * {
     color: red;
   }
 }

@@ -1,68 +1,431 @@
 <main class="main">
 	<div class="container">
 		<div class="wrapper">
-			<div class="main__main-slider main-slider">
-				<div class="prev"></div>
-				<div class="next"></div>
-				<div class="wrap">
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">1
+			<div class="main__wrapper1">
+				<div class="main__main-slider main-slider">
+					<div class="prev"></div><div class="next"></div>
+
+					<div class="wrap">
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">1
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">2
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">3
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">4
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">5
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">6
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">7
+						</div>
+						<div class="main-slider__item item">
+							<img src="img/slide.svg" alt="">8
+						</div>
 					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">2
+
+					<div class="main-slider__nav nav"></div>
+				</div>
+
+				<div class="main__day-book book day-book">
+					<div class="day-book__title">
+						Книга дня
+						<div class="day-book__time">08:56:31</div>
 					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">3
+					<div class="book__img">
+						<img src="img/book-main.jpg" alt="">
 					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">4
-					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">5
-					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">6
-					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">7
-					</div>
-					<div class="main-slider__item item">
-						<img src="img/slide.svg" alt="">8
+					<div class="book__theme">Корпоративное право</div>
+					<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+					<div class="book__autor">Майфат А.В.</div>
+					<div class="book__price">4 450 ₽</div>
+					<div class="book__nav">
+						<button class="book__to-cart">
+							<img src="img/icons/cart-orange.svg" alt="">В корзину
+						</button>
+						<button class="book__to-bookmarks">
+							<img src="img/icons/cupon.svg" alt="">
+						</button>
 					</div>
 				</div>
-				<div class="main-slider__nav nav"></div>
+
+				<div class="main__stocks stoks">
+					<div class="stoks__item violet">
+						<img src="img/no-cash-text.svg" alt="">
+						<img src="img/man-with-boxes.svg" alt="">
+					</div>
+					<div class="stoks__item pink">
+						<img src="img/sale-text.svg" alt="">
+						<img src="img/man-on-puff.svg" alt="">
+					</div>
+				</div>
 			</div>
 
-			<div class="main__day-book book day-book">
-				<div class="day-book__title">
-					Книга дня
-					<div class="day-book__time">08:56:31</div>
+
+			<div class="main__slider-books slider-books" id="slider-new-books">
+				<div class="slider-books__title">
+					Новые поступления
+					<div class="slider-books__controls">
+						<div class="prev"></div>
+						<div class="next"></div>
+					</div>
 				</div>
-				<div class="book__img">
-					<img src="img/book-main.jpg" alt="">
+
+				<div class="slider-books__content">
+					<div class="slider-books__wrap wrap">
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__bestsaller"></div>
+								<div class="book__action"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__new"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price red">984 ₽ <span class="old-price">1 284 ₽</span> <span class="profit">Выгода 300 ₽</span></div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__bestsaller"></div>
+								<div class="book__action"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="book__theme">Корпоративное право</div>
-				<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
-				<div class="book__autor">Майфат А.В.</div>
-				<div class="book__price">4 450 ₽</div>
-				<div class="book__nav">
-					<button class="book__to-cart">
-						<img src="img/icons/cart-orange.svg" alt="">В корзину
-					</button>
-					<button class="book__to-bookmarks">
-						<img src="img/icons/cupon.svg" alt="">
-					</button>
+				<div class="slider-books__footer">
+					Показать все книги раздела
 				</div>
 			</div>
 
-			<div class="main__stocks stoks">
-				<div class="stoks__item violet">
-					<img src="img/no-cash-text.svg" alt="">
-					<img src="img/man-with-boxes.svg" alt="">
+			<div class="main__subscribe">
+				Скидка <span class="price-bg">200 ₽</span> при подписке на рассылку Издательства
+				<input type="text" placeholder="Введите ваш Email">
+				<button>Подписаться</button>
+			</div>
+
+			<div class="main__slider-books slider-books" id="slider-reading">
+				<div class="slider-books__title">
+					Готовятся к выходу
+					<div class="slider-books__controls">
+						<div class="prev"></div>
+						<div class="next"></div>
+					</div>
 				</div>
-				<div class="stoks__item pink">
-					<img src="img/sale-text.svg" alt="">
-					<img src="img/man-on-puff.svg" alt="">
+
+				<div class="slider-books__content">
+					<div class="slider-books__wrap wrap">
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__bestsaller"></div>
+								<div class="book__action"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__new"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price red">984 ₽ <span class="old-price">1 284 ₽</span> <span class="profit">Выгода 300 ₽</span></div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__bestsaller"></div>
+								<div class="book__action"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+
+						<div class="slider-books__book book item">
+							<div class="book__actions">
+								<div class="book__bestsaller"></div>
+								<div class="book__action"></div>
+							</div>
+							<div class="book__img">
+								<img src="img/book-main.jpg" alt="">
+							</div>
+							<div class="book__theme">Корпоративное право</div>
+							<div class="book__title">Инвестирование: способы, риски, субъекты : монография</div>
+							<div class="book__autor">Майфат А.В.</div>
+							<div class="book__price">4 450 ₽</div>
+							<div class="book__feedbacks">
+								<div class="book__star">4.9</div>
+								<div class="book__recomendate">89% рекомендуют</div>
+							</div>
+							<div class="book__nav">
+								<button class="book__to-cart">
+									<img src="img/icons/cart-orange.svg" alt="">В корзину
+								</button>
+								<button class="book__to-bookmarks">
+									<img src="img/icons/cupon.svg" alt="">
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slider-books__footer">
+					Показать все книги раздела
+				</div>
+			</div>
+
+			<div class="main__bonuses bonuses">
+				<div class="bonuses__item">
+					<img src="img/clock.png" alt="">
+					<div class="bonuses__wrapper">
+						<div class="bonuses__title">Быстрая доставка</div>
+						<div class="bonuses__content">Доставим бесплатно<br>от 2000 ₽ по всей России</div>
+					</div>
+				</div>
+				<div class="bonuses__item">
+					<img src="img/pay.png" alt="">
+					<div class="bonuses__wrapper">
+						<div class="bonuses__title">Безопасная оплата</div>
+						<div class="bonuses__content">Плати безопасно и легко<br>онлайн на нашем сайте.</div>
+					</div>
+				</div>
+				<div class="bonuses__item">
+					<img src="img/star.png" alt="">
+					<div class="bonuses__wrapper">
+						<div class="bonuses__title">Бонусная программа</div>
+						<div class="bonuses__content">Дополнительная скидка<br>15% при регистрации</div>
+					</div>
+				</div>
+				<div class="bonuses__item">
+					<img src="img/case.png" alt="">
+					<div class="bonuses__wrapper">
+						<div class="bonuses__title">Большой выбор</div>
+						<div class="bonuses__content">Ежегодно выходит в свет<br>более 100 книг</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="main__slider-news slider-news" id="slider-news">
+				<div class="slider-books__title">
+					Новости
+					<div class="slider-news__controls">
+						<div class="prev"></div>
+						<div class="next"></div>
+					</div>
+				</div>
+
+				<div class="slider-news__content">
+					<div class="slider-news__wrap wrap">
+						<div class="slider-news__new news item">
+							<div class="news__img">
+								<img src="img/news/1.png" alt="">
+							</div>
+							<div class="news__date">16 июня 2020</div>
+							<div class="news__title">Бесплатный онлайн-семинар. Доктрина stare decisis: борьба за прецедент в рос...</div>
+							<div class="news__content">18 июня в «Клубе цивилистов» пройдет бесплатный онлайн-семинар по проблематике судебного прецедента. Мероприятие приуроч...</div>
+							<button class="news__btn-read">Читать</button>
+						</div>
+
+						<div class="slider-news__new news item">
+							<div class="news__img">
+								<img src="img/news/2.png" alt="">
+							</div>
+							<div class="news__date">16 июня 2020</div>
+							<div class="news__title">Бесплатный онлайн-семинар. Доктрина stare decisis: борьба за прецедент в рос...</div>
+							<div class="news__content">18 июня в «Клубе цивилистов» пройдет бесплатный онлайн-семинар по проблематике судебного прецедента. Мероприятие приуроч...</div>
+							<button class="news__btn-read">Читать</button>
+						</div>
+
+						<div class="slider-news__new news item">
+							<div class="news__img">
+								<img src="img/news/3.png" alt="">
+							</div>
+							<div class="news__date">16 июня 2020</div>
+							<div class="news__title">Бесплатный онлайн-семинар. Доктрина stare decisis: борьба за прецедент в рос...</div>
+							<div class="news__content">18 июня в «Клубе цивилистов» пройдет бесплатный онлайн-семинар по проблематике судебного прецедента. Мероприятие приуроч...</div>
+							<button class="news__btn-read">Читать</button>
+						</div>
+
+						<div class="slider-news__new news item">
+							<div class="news__img">
+								<img src="img/news/3.png" alt="">
+							</div>
+							<div class="news__date">16 июня 2020</div>
+							<div class="news__title">Бесплатный онлайн-семинар. Доктрина stare decisis: борьба за прецедент в рос...</div>
+							<div class="news__content">18 июня в «Клубе цивилистов» пройдет бесплатный онлайн-семинар по проблематике судебного прецедента. Мероприятие приуроч...</div>
+							<button class="news__btn-read">Читать</button>
+						</div>
+
+						<div class="slider-news__new news item">
+							<div class="news__img">
+								<img src="img/news/3.png" alt="">
+							</div>
+							<div class="news__date">16 июня 2020</div>
+							<div class="news__title">Бесплатный онлайн-семинар. Доктрина stare decisis: борьба за прецедент в рос...</div>
+							<div class="news__content">18 июня в «Клубе цивилистов» пройдет бесплатный онлайн-семинар по проблематике судебного прецедента. Мероприятие приуроч...</div>
+							<button class="news__btn-read">Читать</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
